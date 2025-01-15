@@ -1,1 +1,158 @@
-let _0x10ff4c=_0x4707;function _0x4707($,x){let e=_0x320e();return(_0x4707=function($,x){return e[$-=317]})($,x)}!function($,x){let e=_0x4707,t=$();for(;;)try{let _=parseInt(e(373))/1*(parseInt(e(372))/2)+-parseInt(e(369))/3*(parseInt(e(349))/4)+-parseInt(e(367))/5+-parseInt(e(366))/6*(-parseInt(e(319))/7)+-parseInt(e(343))/8*(-parseInt(e(359))/9)+parseInt(e(324))/10+parseInt(e(356))/11*(-parseInt(e(346))/12);if(539637===_)break;t.push(t.shift())}catch(n){t.push(t.shift())}}(_0x320e,539637);import{initializeApp as $}from"https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";function _0x320e(){let $=["toLowerCase","location","click","myModal","1529jdnfui","forEach","data","3069BvLkqW","modal-title","modal-description","getElementsByClassName","change","</h3>\n            <p>Precio: <strong>","innerHTML","3045666iWXLed","2070010yZFQUu","price","30Bjtnbb","loading-container","1:915765095360:web:689905fc5455bdbb76f625","25750MrvUym","17HHuRJH","classList","onclick","AIzaSyBIe6_4rj47XgSWHFVGpk04qB7JgOJIhrI",'">\n            <h3>',"menu-item","orderButton","')\">Pedir</button>\n            <button onclick=\"showDescription('","close","search","find","none","push","img","goToOrderPage","category-filter-select","modal-img","order.html","createElement","addEventListener","add","7kfUCxN","appendChild","DOMContentLoaded","stringify","display","2622910wZihVJ","circle","style","load","915765095360","showDescription","href","</strong></p>\n            <button onclick=\"goToOrderPage('","luna-5a497","')\">Leer m\xe1s</button>\n        ","block","#ffffff","description","textContent","luna-5a497.firebaseapp.com","setItem","src","value","name","7936NeeAEB","getElementById","div","30840AWfjvC","particles-js","menu","6472VKlLLf",'" alt="','\n            <img src="'];return(_0x320e=function(){return $})()}import{getFirestore as x,collection as e,getDocs as t,addDoc as _}from"https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";let firebaseConfig={apiKey:_0x10ff4c(376),authDomain:_0x10ff4c(338),projectId:_0x10ff4c(332),storageBucket:"luna-5a497.firebasestorage.app",messagingSenderId:_0x10ff4c(328),appId:_0x10ff4c(371)},app=$(firebaseConfig),db=x(app),menuSection=document.getElementById(_0x10ff4c(348)),modal=document.getElementById(_0x10ff4c(355)),modalTitle=document.getElementById(_0x10ff4c(360)),modalDescription=document.getElementById(_0x10ff4c(361)),modalImg=document[_0x10ff4c(344)](_0x10ff4c(389)),closeBtn=document[_0x10ff4c(362)](_0x10ff4c(381))[0],searchBox=document[_0x10ff4c(344)](_0x10ff4c(382)),categoryFilterSelect=document[_0x10ff4c(344)](_0x10ff4c(388)),menuItems=[];async function loadMenu(){let $=_0x10ff4c,x=await t(e(db,$(348)));menuItems=[],x[$(357)](x=>{let e=$;menuItems[e(385)]({id:x.id,...x[e(358)]()})}),renderMenu(menuItems)}function renderMenu($){let x=_0x10ff4c;menuSection[x(365)]="",$[x(357)]($=>{let e=x,t=document[e(391)](e(345));t[e(374)][e(318)](e(378)),t.innerHTML=e(351)+$[e(386)]+e(350)+$[e(342)]+e(377)+$.name+e(364)+$[e(368)]+e(331)+$.id+e(380)+$.id+e(333),menuSection[e(320)](t)});let e=document[x(344)](x(370));e[x(326)][x(323)]=x(384)}function filterMenu(){let $=_0x10ff4c,x=searchBox[$(341)][$(352)](),e=categoryFilterSelect.value,t=menuItems.filter(t=>{let _=$,n=t[_(342)][_(352)]().includes(x),f=!e||t.category===e;return n&&f});renderMenu(t)}window[_0x10ff4c(387)]=function($){let x=_0x10ff4c,e=menuItems[x(383)](x=>x.id===$);localStorage[x(339)]("selectedItem",JSON[x(322)](e)),window[x(353)][x(330)]=x(390)},window[_0x10ff4c(329)]=function($){let x=_0x10ff4c,e=menuItems[x(383)](x=>x.id===$);modalTitle[x(337)]=e[x(342)],modalDescription.textContent=e[x(336)],modalImg[x(340)]=e[x(386)],document[x(344)](x(379))[x(375)]=()=>goToOrderPage($),modal.style[x(323)]=x(334)},closeBtn[_0x10ff4c(317)](_0x10ff4c(354),()=>{let $=_0x10ff4c;modal[$(326)][$(323)]=$(384)}),searchBox[_0x10ff4c(317)]("input",filterMenu),categoryFilterSelect.addEventListener(_0x10ff4c(363),filterMenu),loadMenu(),document.addEventListener(_0x10ff4c(321),function(){let $=_0x10ff4c;tsParticles[$(327)]($(347),{particles:{number:{value:150,density:{enable:!0,value_area:800}},color:{value:$(335)},shape:{type:$(325),stroke:{width:0,color:$(335)}},opacity:{value:.6,random:!0,anim:{enable:!0,speed:2,opacity_min:.1}},size:{value:2,random:!0,anim:{enable:!0,speed:5,size_min:.5}},move:{enable:!0,speed:5,direction:$(384),random:!0,straight:!1,out_mode:"out",bounce:!1}}})});
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBIe6_4rj47XgSWHFVGpk04qB7JgOJIhrI",
+    authDomain: "luna-5a497.firebaseapp.com",
+    projectId: "luna-5a497",
+    storageBucket: "luna-5a497.firebasestorage.app",
+    messagingSenderId: "915765095360",
+    appId: "1:915765095360:web:689905fc5455bdbb76f625"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const menuSection = document.getElementById("menu");
+const modal = document.getElementById("myModal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalImg = document.getElementById("modal-img");
+const closeBtn = document.getElementsByClassName("close")[0];  // Aquí guardamos el botón de cerrar
+const searchBox = document.getElementById("search");
+const categoryFilterSelect = document.getElementById("category-filter-select");
+
+let menuItems = [];  // Array para guardar los platos
+
+// Cargar platos desde Firestore
+async function loadMenu() {
+    const querySnapshot = await getDocs(collection(db, "menu"));
+    menuItems = [];
+    querySnapshot.forEach((doc) => {
+        menuItems.push({ id: doc.id, ...doc.data() });
+    });
+    renderMenu(menuItems);
+}
+
+function renderMenu(items) {
+    menuSection.innerHTML = "";  // Limpiar la sección del menú
+
+    items.forEach(item => {
+        const menuItem = document.createElement("div");
+        menuItem.classList.add("menu-item");
+        menuItem.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>Precio: <strong>${item.price}</strong></p>
+            <button onclick="goToOrderPage('${item.id}')">Pedir</button>
+            <button onclick="showDescription('${item.id}')">Leer más</button>
+        `;
+        menuSection.appendChild(menuItem);
+    });
+
+    const loadingContainer = document.getElementById("loading-container");
+    loadingContainer.style.display = "none";
+}
+
+window.goToOrderPage = function(id) {
+    const selectedItem = menuItems.find(item => item.id === id);
+    localStorage.setItem("selectedItem", JSON.stringify(selectedItem));
+    window.location.href = "order.html";  // Redirigir a la página de pedidos
+};
+
+window.showDescription = function(id) {
+    const item = menuItems.find(i => i.id === id);
+    modalTitle.textContent = item.name;
+    modalDescription.textContent = item.description;
+    modalImg.src = item.img;
+    document.getElementById("orderButton").onclick = () => goToOrderPage(id);
+    
+    // Obtener la posición del plato en la pantalla
+    const menuItemElement = document.querySelector(`.menu-item[data-id='${id}']`);
+    const rect = menuItemElement.getBoundingClientRect();  // Obtenemos las coordenadas del plato
+    
+    // Establecer la posición del modal
+    modal.style.top = `${rect.top + window.scrollY}px`;  // Ajustar la posición top en función del scroll
+    modal.style.left = `${rect.left + window.scrollX}px`;  // Ajustar la posición left en función del scroll
+
+    // Mostrar el modal
+    modal.style.display = "block";
+};
+
+// Cerrar el modal cuando se haga clic en la "X"
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";  // Ocultar el modal
+});
+
+// Filtrar y buscar platos
+function filterMenu() {
+    const searchQuery = searchBox.value.toLowerCase();  
+    const selectedCategory = categoryFilterSelect.value;  
+
+    const filteredItems = menuItems.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery);  
+        const matchesCategory = selectedCategory ? item.category === selectedCategory : true;  
+        return matchesSearch && matchesCategory;
+    });
+
+    renderMenu(filteredItems);  
+}
+
+searchBox.addEventListener("input", filterMenu);   
+categoryFilterSelect.addEventListener("change", filterMenu);   
+
+loadMenu();  // Cargar los platos iniciales
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+     tsParticles.load("particles-js", {
+         "particles": {
+             "number": {
+                 "value": 150,  // Aumentamos la cantidad de partículas
+                 "density": {
+                     "enable": true,
+                     "value_area": 800
+                 }
+             },
+             "color": {
+                 "value": "#ffffff"  // Color blanco
+             },
+             "shape": {
+                 "type": "circle",  // Forma circular
+                 "stroke": {
+                     "width": 0,
+                     "color": "#ffffff"  // Sin borde
+                 }
+             },
+             "opacity": {
+                 "value": 0.6,  // Menos opacas para hacerlas más sutiles
+                 "random": true,
+                 "anim": {
+                     "enable": true,
+                     "speed": 2,  // Velocidad de la animación de opacidad
+                     "opacity_min": 0.1
+                 }
+             },
+             "size": {
+                 "value": 2,  // Tamaño más pequeño para las partículas
+                 "random": true,
+                 "anim": {
+                     "enable": true,
+                     "speed": 5,  // Aumentamos la velocidad de crecimiento
+                     "size_min": 0.5  // Tamaño mínimo de las partículas
+                 }
+             },
+             "move": {
+                 "enable": true,
+                 "speed": 5,  // Aumentamos la velocidad de movimiento
+                 "direction": "none",  // Movimiento aleatorio
+                 "random": true,
+                 "straight": false,
+                 "out_mode": "out",
+                 "bounce": false
+             }
+         }
+     });
+ });          
