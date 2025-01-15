@@ -45,7 +45,7 @@ function renderMenu(items) {
             <h3>${item.name}</h3>
             <p>Precio: <strong>${item.price}</strong></p>
             <button onclick="goToOrderPage('${item.id}')">Pedir</button>
-            <button onclick="showDescription('${item.id}')">Leer más</button>
+            <button onclick="showDescription(event, '${item.id}')">Leer más</button>
         `;
         menuSection.appendChild(menuItem);
     });
@@ -60,48 +60,41 @@ window.goToOrderPage = function(id) {
     window.location.href = "order.html";  // Redirigir a la página de pedidos
 };
 
-window.showDescription = function(id) {
+// Función para mostrar la descripción del plato y abrir el modal en la posición del clic
+window.showDescription = function(event, id) {
     const item = menuItems.find(i => i.id === id);
     modalTitle.textContent = item.name;
     modalDescription.textContent = item.description;
     modalImg.src = item.img;
     document.getElementById("orderButton").onclick = () => goToOrderPage(id);
-    
-    // Obtener la posición del plato en la pantalla
-    const menuItemElement = document.querySelector(`.menu-item[data-id='${id}']`);
-    const rect = menuItemElement.getBoundingClientRect();  // Obtenemos las coordenadas del plato
-    
-    // Establecer la posición del modal
-    modal.style.top = `${rect.top + window.scrollY}px`;  // Ajustar la posición top en función del scroll
-    modal.style.left = `${rect.left + window.scrollX}px`;  // Ajustar la posición left en función del scroll
 
-    // Mostrar el modal
+    // Obtener la posición del clic (donde se hizo clic en el botón de "Leer más")
+    const rect = event.target.getBoundingClientRect();
+    const offsetX = rect.left + window.scrollX;
+    const offsetY = rect.top + window.scrollY;
+
+    // Ajustar la posición del modal
+    modal.style.left = `${offsetX}px`;
+    modal.style.top = `${offsetY}px`;
+
+    // Asegurar que el modal sea visible y con la animación correcta
     modal.style.display = "block";
+    setTimeout(() => {
+        modal.style.transform = "scale(1)";
+        modal.style.transition = "transform 0.3s ease-out";
+    }, 10);
 };
 
-// Cerrar el modal cuando se haga clic en la "X"
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";  // Ocultar el modal
-});
+// Cerrar el modal cuando se haga clic en el fondo o en el botón de cerrar
+window.onclick = function(event) {
+    if (event.target === modal || event.target === closeBtn) {
+        modal.style.display = "none";
+        modal.style.transform = "scale(0)";  // Reducir el modal a escala 0 para un efecto de cierre suave
+    }
+};
 
-// Filtrar y buscar platos
-function filterMenu() {
-    const searchQuery = searchBox.value.toLowerCase();  
-    const selectedCategory = categoryFilterSelect.value;  
-
-    const filteredItems = menuItems.filter(item => {
-        const matchesSearch = item.name.toLowerCase().includes(searchQuery);  
-        const matchesCategory = selectedCategory ? item.category === selectedCategory : true;  
-        return matchesSearch && matchesCategory;
-    });
-
-    renderMenu(filteredItems);  
-}
-
-searchBox.addEventListener("input", filterMenu);   
-categoryFilterSelect.addEventListener("change", filterMenu);   
-
-loadMenu();  // Cargar los platos iniciales
+// Cargar los datos del menú al inicio
+loadMenu();
 
 
 
